@@ -1,26 +1,15 @@
 package com.rest.example.restexample;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.List;
-
-@Service
-@Component
-@RestController
-@RequestMapping("/tienda")
+@RequestMapping("/productos")
 public class ProductoGuardado {
-
-    // Lista de productos estáticos que se ofrecen
-    @GetMapping("/productos")
-    public List<Producto> obtenerProductos() {
-        return ProductoGuardado.getAllProductos();
-    }
-    private static List<Producto> productos = Arrays.asList(
+    static List<Producto> productos = Arrays.asList(
             new Producto("iPhone 12 Pro", 1200000),
             new Producto("MacBook Pro", 1100000),
             new Producto("Samsung Galaxy S21 Ultra", 2150000),
@@ -33,9 +22,7 @@ public class ProductoGuardado {
             new Producto("Monitor LG", 700000)
     );
 
-    // Método para obtener la lista completa de productos
     public static List<Producto> getAllProductos() {
         return productos;
     }
 }
-

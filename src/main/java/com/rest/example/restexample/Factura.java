@@ -6,12 +6,11 @@ public class Factura {
     private String Nombre;
     private List<ProductoOrdernado> Ordenes;
 
-    // Constructor que toma el nombre del cliente y la lista de productos ordenados como argumentos
     public Factura(String Nombre, List<ProductoOrdernado> Ordenes) {
         this.Nombre = Nombre;
         this.Ordenes = Ordenes;
     }
-    // Sobrescribir el método toString para imprimir la factura en formato legible
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -23,9 +22,7 @@ public class Factura {
             builder.append(orden + "\n");
             total += orden.getProducto().getPrecio() * orden.getCantidad();
         }
-        // Agregar el total de la factura
         builder.append("Total: $" + total);
         return builder.toString();
     }
 }
-
